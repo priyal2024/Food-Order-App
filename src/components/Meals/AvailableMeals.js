@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import classes from "./AvailableMeals.module.css";
 import Card from "../UI/Card";
 import MealItem from "./MealItem/MealItem";
+import { mealsData } from "../../utilities/data";
 
 
 const AvailableMeals = () => {
@@ -53,7 +54,8 @@ const AvailableMeals = () => {
         </section>;
     }
 
-    const mealsList = meals.map(meal =>
+    const availableMeal = meals ? meals : mealsData;
+    const mealsList = availableMeal.map(meal =>
         <MealItem
             key={meal.id}
             id={meal.id}
